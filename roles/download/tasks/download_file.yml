@@ -119,7 +119,7 @@
       register: get_task
       until: get_task is succeeded
       delay: "{{ retry_stagger | random + 3 }}"
-      retries: 4
+      retries: 100
       when:
         - download_force_cache
 
