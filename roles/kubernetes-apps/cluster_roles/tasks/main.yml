@@ -71,7 +71,7 @@
     src: k8s-cluster-critical-pc.yml
     dest: "{{ kube_config_dir }}/k8s-cluster-critical-pc.yml"
     mode: 0640
-  when: inventory_hostname == groups['kube_control_plane'] | last
+  when: inventory_hostname == groups['kube_control_plane'][0]
 
 - name: PriorityClass | Create k8s-cluster-critical
   kube:
@@ -84,4 +84,4 @@
   until: result is succeeded
   retries: 10
   delay: 6
-  when: inventory_hostname == groups['kube_control_plane'] | last
+  when: inventory_hostname == groups['kube_control_plane'][0]
