@@ -22,6 +22,7 @@
 - name: Install required packages on fedora coreos
   raw: "export http_proxy={{ http_proxy | default('') }};rpm-ostree install --allow-inactive {{ fedora_coreos_packages | join(' ') }}"
   become: true
+  retries: 10
   when: need_bootstrap.rc != 0
 
 - name: Reboot immediately for updated ostree
