@@ -75,8 +75,8 @@ You will then need to use [bind mounts](https://docs.docker.com/storage/bind-mou
 to access the inventory and SSH key in the container, like this:
 
 ```ShellSession
-git checkout v2.24.1
-docker pull quay.io/kubespray/kubespray:v2.24.1
+git checkout v2.24.3
+docker pull quay.io/kubespray/kubespray:v2.24.3
 docker run --rm -it --mount type=bind,source="$(pwd)"/inventory/sample,dst=/inventory \
   --mount type=bind,source="${HOME}"/.ssh/id_rsa,dst=/root/.ssh/id_rsa \
   quay.io/kubespray/kubespray:v2.23.2 bash
@@ -161,11 +161,11 @@ Note: Upstart/SysV init based OS types are not supported.
 ## Supported Components
 
 - Core
-  - [kubernetes](https://github.com/kubernetes/kubernetes) v1.28.6
-  - [etcd](https://github.com/etcd-io/etcd) v3.5.10
+  - [kubernetes](https://github.com/kubernetes/kubernetes) v1.28.14
+  - [etcd](https://github.com/etcd-io/etcd) v3.5.16
   - [docker](https://www.docker.com/) v20.10 (see note)
-  - [containerd](https://containerd.io/) v1.7.13
-  - [cri-o](http://cri-o.io/) v1.27 (experimental: see [CRI-O Note](docs/cri-o.md). Only on fedora, ubuntu and centos based OS)
+  - [containerd](https://containerd.io/) v1.7.22
+  - [cri-o](http://cri-o.io/) v1.28 (experimental: see [CRI-O Note](docs/cri-o.md). Only on fedora, ubuntu and centos based OS)
 - Network Plugin
   - [cni-plugins](https://github.com/containernetworking/plugins) v1.2.0
   - [calico](https://github.com/projectcalico/calico) v3.26.4
